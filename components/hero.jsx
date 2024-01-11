@@ -1,17 +1,15 @@
-"use client";
-
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Story Of Us", href: "#" },
-  { name: "Everyday Moments", href: "#" },
-  { name: "Us Around The World", href: "#" },
-  { name: "Anniversaries", href: "#" },
+  { name: "Product", href: "#" },
+  { name: "Features", href: "#" },
+  { name: "Marketplace", href: "#" },
+  { name: "Company", href: "#" },
 ];
 
-export default function Home() {
+export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -23,7 +21,7 @@ export default function Home() {
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Our Logo</span>
+              <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -52,6 +50,14 @@ export default function Home() {
               </a>
             ))}
           </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </nav>
         <Dialog
           as="div"
@@ -63,7 +69,7 @@ export default function Home() {
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Our Logo</span>
+                <span className="sr-only">Your Company</span>
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -91,6 +97,14 @@ export default function Home() {
                       {item.name}
                     </a>
                   ))}
+                </div>
+                <div className="py-6">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in
+                  </a>
                 </div>
               </div>
             </div>
@@ -145,28 +159,27 @@ export default function Home() {
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Our Journey of Love and Adventure.
+                    We’re changing the way people connect.
                   </h1>
                   <p className="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                    "In every step, every laugh, and every shared silence, our
-                    love story unfolds. This is not just a chronicle of dates
-                    and places, but a fabric woven from countless of our
-                    precious moments. Here, in this digital haven, lies the
-                    heart of our journey together. Welcome to our world, a
-                    beautiful mosaic of memories, a celebration of 'us'."
+                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
+                    quis cupidatat mollit aute velit. Et labore commodo nulla
+                    aliqua proident mollit ullamco exercitation tempor. Sint
+                    aliqua anim nulla sunt mollit id pariatur in voluptate
+                    cillum.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <a
                       href="#"
                       className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
-                      Explore Our Story
+                      Get started
                     </a>
                     <a
                       href="#"
                       className="text-sm font-semibold leading-6 text-gray-900"
                     >
-                      Read Our Adventure <span aria-hidden="true">→</span>
+                      Live demo <span aria-hidden="true">→</span>
                     </a>
                   </div>
                 </div>
