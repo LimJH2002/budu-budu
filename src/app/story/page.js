@@ -35,7 +35,7 @@ export default function Story() {
         style={{ color: "#a35c29" }} // Matching color for consistency
         data-aos="fade-up" // AOS animation for the subtitle
       >
-        Capturing Our Unforgettable Moments And How Far We've Come
+        Capturing Our Unforgettable Moments And How Far We&apos;ve Come
       </p>
       <div className="max-w-4xl mx-auto p-4 rounded-xl">
         {StoryData.map((item, index) => (
