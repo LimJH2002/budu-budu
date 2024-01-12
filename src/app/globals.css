@@ -25,19 +25,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-.timeline-item::before {
-  content: '';
-  width: 2px;
-  height: 100%;
-  background-color: #E5E7EB; /* Tailwind gray-300 */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (min-width: 768px) { /* Tailwind md breakpoint */
-  .timeline-item::before {
-    left: 16.666667%; /* Adjust based on your layout */
-  }
-}

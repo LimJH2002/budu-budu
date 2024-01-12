@@ -1,33 +1,45 @@
-// pages/story.js
+"use client";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import StoryData from "../../../data/StoryData";
+
 export default function Story() {
-  const timelineData = [
-    {
-      date: "Date 1",
-      title: "Title 1",
-      description: "Description 1",
-      imageUrl: "./timeline/1.jpg",
-    },
-    {
-      date: "Date 2",
-      title: "Title 2",
-      description: "Description 2",
-      imageUrl: "./timeline/2.jpg",
-    },
-    // Add more entries as needed
-  ];
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+      once: true,
+    });
+
+    return () => {
+      AOS.refresh();
+    };
+  }, []);
+
+  const treasureMapGradient = {
+    background: "linear-gradient(to right, #f5f0e1, #e8d1b0, #f5f0e1)",
+  };
 
   return (
-    <div className="bg-white py-8">
-      <h1 className="text-4xl font-bold text-center mb-12 text-indigo-600">
+    <div className="py-8 pt-24" style={treasureMapGradient}>
+      <h1
+        className="text-4xl font-bold text-center mb-12"
+        style={{ color: "#8b4513" }}
+        data-aos="fade-in"
+      >
         Our Journey
       </h1>
-      <div className="max-w-4xl mx-auto p-4">
-        {timelineData.map((item, index) => (
+      <div
+        className="max-w-4xl mx-auto p-4 rounded-xl"
+      >
+        {StoryData.map((item, index) => (
           <div
             key={index}
             className={`flex flex-col ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             } md:items-center gap-8 mb-10`}
+            data-aos="fade-up"
           >
             <div className="md:w-1/2">
               <img
