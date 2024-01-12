@@ -34,10 +34,13 @@ export default function Anniversary() {
   };
 
   return (
-    <div className="bg-gray-50 py-8 pt-24">
-      <h1 className="text-5xl font-extrabold text-center text-indigo-700 mb-16">
+    <div className="bg-gray-50 py-8 pt-24 h-screen">
+      <h1 className="text-5xl font-extrabold text-center text-indigo-700 mb-4">
         Our Anniversaries
       </h1>
+      <p className="text-xl text-center text-gray-600 mb-16">
+        Celebrating the milestones of our journey together
+      </p>
       {anniversaries.map((anniversary, index) => (
         <div
           key={index}

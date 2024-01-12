@@ -26,9 +26,12 @@ const EverydayMoments = () => {
 
   return (
     <div className="bg-slate-300 xl:px-10 px-4 min-h-screen">
-      <h1 className="text-4xl font-bold text-center pt-24 py-8 text-slate-500">
+      <h1 className="text-4xl font-bold text-center pt-24 text-slate-500 mb-4">
         Everyday Moments
       </h1>
+      <p className="text-xl text-center mb-8 text-slate-400">
+        Capturing the little joys and simple pleasures of daily life
+      </p>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
