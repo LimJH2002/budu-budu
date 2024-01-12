@@ -2,13 +2,14 @@
 
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Story Of Us", href: "#" },
-  { name: "Everyday Moments", href: "#" },
+  { name: "Story Of Us", href: "./story" },
+  { name: "Everyday Moments", href: "./everyday" },
   { name: "Us Around The World", href: "#" },
-  { name: "Anniversaries", href: "#" },
+  { name: "Anniversaries", href: "./anniversary" },
 ];
 
 export default function Home() {
@@ -43,13 +44,13 @@ export default function Home() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
@@ -157,16 +158,10 @@ export default function Home() {
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <a
-                      href="#"
+                      href="./story"
                       className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                       Explore Our Story
-                    </a>
-                    <a
-                      href="#"
-                      className="text-sm font-semibold leading-6 text-gray-900"
-                    >
-                      Read Our Adventure <span aria-hidden="true">→</span>
                     </a>
                   </div>
                 </div>
