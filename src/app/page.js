@@ -73,12 +73,12 @@ export default function Home() {
                   Our Journey of Love and Adventure.
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                  "In every step, every laugh, and every shared silence, our
+                  In every step, every laugh, and every shared silence, our
                   love story unfolds. This is not just a chronicle of dates and
                   places, but a fabric woven from countless of our precious
                   moments. Here, in this digital haven, lies the heart of our
                   journey together. Welcome to our world, a beautiful mosaic of
-                  memories, a celebration of 'us'."
+                  memories, a celebration of us.
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
