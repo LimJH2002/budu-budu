@@ -54,7 +54,7 @@ export default function Story() {
               />
             </div>
             <div className="md:w-1/2 space-y-3">
-              <p className="text-xl font-semibold text-gray-800">
+              <p className="text-xl font-semibold text-gray-800 capitalize">
                 {item.title}
               </p>
               <p className="text-md text-gray-500">{item.date}</p>

@@ -1,8 +1,8 @@
 "use client";
 import "leaflet/dist/leaflet.css";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import "tailwindcss/tailwind.css";
 import anniversaries from "../../../data/AnniversaryData";
 
 export default function Anniversary() {
@@ -34,57 +34,40 @@ export default function Anniversary() {
   };
 
   return (
-    <div className="bg-gray-50 py-8 pt-24 h-screen">
-      <h1 className="text-5xl font-extrabold text-center text-indigo-700 mb-4">
+    <div className="bg-gradient-to-b from-pink-100 to-pink-200 py-8 pt-24 min-h-screen">
+      <h1 className="text-6xl font-extrabold text-center text-pink-500 mb-6">
         Our Anniversaries
       </h1>
-      <p className="text-xl text-center text-gray-600 mb-16">
-        Celebrating the milestones of our journey together
+      <p className="text-2xl text-center text-pink-400 mb-12">
+        Milestones of our journey together
       </p>
       {anniversaries.map((anniversary, index) => (
         <div
           key={index}
-          className="bg-white shadow-lg rounded-lg overflow-hidden mb-10 mx-auto max-w-4xl"
+          className="bg-white/90 shadow-xl rounded-3xl overflow-hidden mb-12 mx-auto max-w-5xl p-6 transition duration-500 hover:shadow-2xl"
         >
-          <h2 className="text-3xl font-semibold text-gray-800 px-6 pt-6">
+          <h2 className="text-4xl font-semibold text-pink-600 mb-3">
             {anniversary.year}
           </h2>
-          <p className="text-md italic text-gray-600 px-6 mb-4">
+          <p className="text-lg italic text-pink-500 mb-6">
             {anniversary.date}
           </p>
-          <Slider {...settings}>
+          <div className="carousel rounded-lg">
             {anniversary.images.map((image, idx) => (
-              <div key={idx} className="slick-image">
+              <div key={idx} className="carousel-item">
                 <img
                   src={image}
                   alt={`Anniversary ${anniversary.year}`}
-                  className="mx-auto"
-                  style={{ maxHeight: "400px", width: "auto", height: "auto" }}
+                  width="300"
+                  height="500"
+                  className="mx-auto rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
                 />
               </div>
             ))}
-          </Slider>
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-lg">{anniversary.description}</p>
           </div>
-          {/* {anniversary.locations && (
-            <MapContainer
-              center={anniversary.locations[0]}
-              zoom={13}
-              scrollWheelZoom={false}
-              className="h-64 border-2 border-gray-200 shadow-inner"
-            >
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              />
-              {anniversary.locations.map((loc, idx) => (
-                <Marker key={idx} position={loc}>
-                  <Popup>A lovely place we visited.</Popup>
-                </Marker>
-              ))}
-            </MapContainer>
-          )} */}
+          <div className="text-gray-700 text-xl mt-6">
+            <p>{anniversary.description}</p>
+          </div>
         </div>
       ))}
     </div>
