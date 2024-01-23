@@ -94,7 +94,7 @@ export function NavbarSimple() {
       <div className="flex items-center justify-between text-gray-900">
         <a
           href="./"
-          class="mr-4 block cursor-pointer py-1.5 font-sans text-2xl font-semibold leading-relaxed tracking-normal text-inherit antialiased hover:text-gray-500 transition-colors"
+          className="mr-4 block cursor-pointer py-1.5 font-sans text-2xl font-semibold leading-relaxed tracking-normal text-inherit antialiased hover:text-gray-500 transition-colors"
         >
           Bubu & Dudu
         </a>

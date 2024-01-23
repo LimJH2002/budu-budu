@@ -1,12 +1,19 @@
 // EverydayMoments.js
 "use client";
-import Masonry from "@mui/lab/Masonry";
+// import Masonry from "@mui/lab/Masonry";
+import Masonry from "react-masonry-css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 const EverydayMoments = () => {
-  const [images, setImages] = useState([]);
+  const generateNumbersArray = () => {
+    const numbers = [];
+    for (let i = 0; i < 375; i++) {
+      numbers.push(i);
+    }
+    return numbers;
+  };
 
   // Function to shuffle an array
   const shuffleArray = (array) => {
@@ -17,29 +24,31 @@ const EverydayMoments = () => {
     return array;
   };
 
+  const [images, setImages] = useState(shuffleArray(generateNumbersArray()));
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
-    const fetchImages = async () => {
-      try {
-        const response = await fetch("/api/images");
-        let imagePaths = await response.json();
+    // const fetchImages = async () => {
+    //   try {
+    //     const response = await fetch("/api/images");
+    //     let imagePaths = await response.json();
 
-        // Filter out the .DS_Store file
-        imagePaths = imagePaths.filter(
-          (imagePath) => !imagePath.includes(".DS_Store")
-        );
+    //     // Filter out the .DS_Store file
+    //     imagePaths = imagePaths.filter(
+    //       (imagePath) => !imagePath.includes(".DS_Store")
+    //     );
 
-        // Shuffle the image paths
-        imagePaths = shuffleArray(imagePaths);
+    //     // Shuffle the image paths
+    //     imagePaths = shuffleArray(imagePaths);
 
-        setImages(imagePaths);
-      } catch (error) {
-        console.error("Failed to fetch images:", error);
-      }
-    };
+    //     setImages(imagePaths);
+    //   } catch (error) {
+    //     console.error("Failed to fetch images:", error);
+    //   }
+    // };
 
-    fetchImages();
+    // fetchImages();
   }, []);
 
   // Define breakpoints for the masonry grid columns
@@ -61,17 +70,17 @@ const EverydayMoments = () => {
       <p className="text-xl text-center mb-8 text-slate-400" data-aos="fade-up">
         Capturing the little joys and simple pleasures of daily life
       </p>
-      {/* <Masonry
+      <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
-      > */}
-      <Masonry columns={8} spacing={2}>
+      >
+      {/* <Masonry columns={8} spacing={2}> */}
         {images.map((image, index) => (
           <div key={index} data-aos="fade-up">
             <img
-              src={image}
-              alt={`Everyday Moment ${index}`}
+              src={`./everyday/Pic${image}.jpg`}
+              alt={`Everyday Moment ${image}`}
               style={{ width: "100%", height: "auto", objectFit: "cover" }}
               className="transition duration-300 ease-in-out transform hover:scale-110 rounded-xl"
             />
