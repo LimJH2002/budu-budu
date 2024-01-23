@@ -1,9 +1,9 @@
 // EverydayMoments.js
 "use client";
+import Masonry from "@mui/lab/Masonry";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import Masonry from "react-masonry-css";
 
 const EverydayMoments = () => {
   const [images, setImages] = useState([]);
@@ -61,18 +61,17 @@ const EverydayMoments = () => {
       <p className="text-xl text-center mb-8 text-slate-400" data-aos="fade-up">
         Capturing the little joys and simple pleasures of daily life
       </p>
-      <Masonry
+      {/* <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
-      >
+      > */}
+      <Masonry columns={8} spacing={2}>
         {images.map((image, index) => (
           <div key={index} data-aos="fade-up">
             <img
               src={image}
               alt={`Everyday Moment ${index}`}
-              width="200"
-              height="200"
               style={{ width: "100%", height: "auto", objectFit: "cover" }}
               className="transition duration-300 ease-in-out transform hover:scale-110 rounded-xl"
             />

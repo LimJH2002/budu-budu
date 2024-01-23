@@ -94,8 +94,6 @@ export function NavbarSimple() {
       <div className="flex items-center justify-between text-blue-gray-900">
         <img src="/logo.png" alt="logo" width={60} height={60} />
         <div className="hidden lg:block text-xl">
-          {" "}
-          {/* Increase font size */}
           <NavList />
         </div>
         <IconButton
