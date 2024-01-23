@@ -1,10 +1,10 @@
 // EverydayMoments.js
 "use client";
 // import Masonry from "@mui/lab/Masonry";
-import Masonry from "react-masonry-css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
 
 const EverydayMoments = () => {
   const generateNumbersArray = () => {
@@ -28,27 +28,6 @@ const EverydayMoments = () => {
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-
-    // const fetchImages = async () => {
-    //   try {
-    //     const response = await fetch("/api/images");
-    //     let imagePaths = await response.json();
-
-    //     // Filter out the .DS_Store file
-    //     imagePaths = imagePaths.filter(
-    //       (imagePath) => !imagePath.includes(".DS_Store")
-    //     );
-
-    //     // Shuffle the image paths
-    //     imagePaths = shuffleArray(imagePaths);
-
-    //     setImages(imagePaths);
-    //   } catch (error) {
-    //     console.error("Failed to fetch images:", error);
-    //   }
-    // };
-
-    // fetchImages();
   }, []);
 
   // Define breakpoints for the masonry grid columns
@@ -75,7 +54,7 @@ const EverydayMoments = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-      {/* <Masonry columns={8} spacing={2}> */}
+        {/* <Masonry columns={10} spacing={2}> */}
         {images.map((image, index) => (
           <div key={index} data-aos="fade-up">
             <img
