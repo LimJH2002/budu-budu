@@ -50,7 +50,7 @@ export default function Anniversary() {
             {anniversary.year}
           </h2>
           <p className="text-lg italic text-blue-500 mb-6">
-            {anniversary.date}
+            {anniversary.location}
           </p>
           <div className="carousel rounded-lg">
             {anniversary.images.map((image, idx) => (
@@ -60,7 +60,7 @@ export default function Anniversary() {
                   alt={`Anniversary ${anniversary.year}`}
                   width="300"
                   height="500"
-                  className="mx-auto rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  className="mx-[1px] rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
                 />
               </div>
             ))}

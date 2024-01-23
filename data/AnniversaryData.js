@@ -1,13 +1,15 @@
 const anniversaries = [
   {
     year: "2024",
-    date: "13012024-15012024, 23012024",
-    description: "Description of how we celebrated our anniversary.",
+    location:
+      "Quincy, Kim Dae Mun, Dong Bei Ren Jia, Zhang Liang Mala, Maru KBBQ, Paiseh Cafe, Beurre@23",
+    description: "",
     images: [
-      "/timeline/1.jpg",
-      "/timeline/2.jpg",
-      "/timeline/5.jpg",
-      "/timeline/2.jpg",
+      "/anniversary/2024/1.jpg",
+      "/anniversary/2024/2.jpg",
+      "/anniversary/2024/3.jpg",
+      "/anniversary/2024/4.jpg",
+      "/anniversary/2024/5.jpg",
     ],
   },
   // ... add more anniversaries as needed
