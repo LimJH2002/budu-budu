@@ -91,8 +91,13 @@ export function NavbarSimple() {
 
   return (
     <Navbar className="mx-auto max-w-screen-2xl px-10 py-8 absolute top-0 right-0 left-0 bg-transparent z-10">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <img src="/logo.png" alt="logo" width={60} height={60} />
+      <div className="flex items-center justify-between text-gray-900">
+        <a
+          href="./"
+          class="mr-4 block cursor-pointer py-1.5 font-sans text-2xl font-semibold leading-relaxed tracking-normal text-inherit antialiased hover:text-gray-500 transition-colors"
+        >
+          Bubu & Dudu
+        </a>
         <div className="hidden lg:block text-xl">
           <NavList />
         </div>
