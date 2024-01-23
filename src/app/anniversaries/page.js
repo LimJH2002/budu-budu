@@ -34,11 +34,11 @@ export default function Anniversary() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-pink-100 to-pink-200 py-8 pt-24 min-h-screen">
-      <h1 className="text-6xl font-extrabold text-center text-pink-500 mb-6">
+    <div className="bg-gradient-to-b from-blue-100 to-blue-200 py-8 pt-36 min-h-screen">
+      <h1 className="text-6xl font-extrabold text-center text-blue-500 mb-6">
         Our Anniversaries
       </h1>
-      <p className="text-2xl text-center text-pink-400 mb-12">
+      <p className="text-2xl text-center text-blue-400 mb-12">
         Milestones of our journey together
       </p>
       {anniversaries.map((anniversary, index) => (
@@ -46,10 +46,10 @@ export default function Anniversary() {
           key={index}
           className="bg-white/90 shadow-xl rounded-3xl overflow-hidden mb-12 mx-auto max-w-5xl p-6 transition duration-500 hover:shadow-2xl"
         >
-          <h2 className="text-4xl font-semibold text-pink-600 mb-3">
+          <h2 className="text-4xl font-semibold text-blue-600 mb-3">
             {anniversary.year}
           </h2>
-          <p className="text-lg italic text-pink-500 mb-6">
+          <p className="text-lg italic text-blue-500 mb-6">
             {anniversary.date}
           </p>
           <div className="carousel rounded-lg">

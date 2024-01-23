@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white h-screen">
       <main className="relative isolate">
         <svg
           className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
@@ -62,7 +62,7 @@ export default function Home() {
             }}
           />
         </div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden pt-24">
           <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               <div
@@ -83,7 +83,7 @@ export default function Home() {
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
                     href="./story"
-                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Explore Our Story
                   </a>

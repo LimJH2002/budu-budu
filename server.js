@@ -1,3 +1,4 @@
+// Server-side code (Node.js/Express and Next.js)
 const express = require("express");
 const next = require("next");
 const fs = require("fs");
@@ -11,12 +12,12 @@ app.prepare().then(() => {
   const server = express();
 
   server.get("/api/images", (req, res) => {
-    const imagesDirectory = path.join(__dirname, "public/timeline");
+    const imagesDirectory = path.join(__dirname, "public/everyday");
     fs.readdir(imagesDirectory, (err, files) => {
       if (err) {
         return res.status(500).send("Error reading images");
       }
-      const imagePaths = files.map((file) => `/timeline/${file}`);
+      const imagePaths = files.map((file) => `/everyday/${file}`);
       res.json(imagePaths);
     });
   });

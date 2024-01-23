@@ -1,24 +1,39 @@
 // EverydayMoments.js
 "use client";
-import Masonry from "react-masonry-css";
-import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
 
 const EverydayMoments = () => {
   const [images, setImages] = useState([]);
 
+  // Function to shuffle an array
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+  };
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
-    // Fetch the image data from the server component
     const fetchImages = async () => {
       try {
         const response = await fetch("/api/images");
-        const data = await response.json();
-        const formattedData = data.map((image) => `${image}`);
-        setImages(formattedData);
+        let imagePaths = await response.json();
+
+        // Filter out the .DS_Store file
+        imagePaths = imagePaths.filter(
+          (imagePath) => !imagePath.includes(".DS_Store")
+        );
+
+        // Shuffle the image paths
+        imagePaths = shuffleArray(imagePaths);
+
+        setImages(imagePaths);
       } catch (error) {
         console.error("Failed to fetch images:", error);
       }
@@ -29,20 +44,16 @@ const EverydayMoments = () => {
 
   // Define breakpoints for the masonry grid columns
   const breakpointColumnsObj = {
-    default: 8,
+    default: 10,
     1100: 3,
     700: 2,
     500: 1,
   };
 
-  {
-    console.log("fdfdfdfd", images);
-  }
-
   return (
     <div className="bg-slate-300 xl:px-10 px-4 min-h-screen">
       <h1
-        className="text-4xl font-bold text-center pt-24 text-slate-500 mb-4"
+        className="text-4xl font-bold text-center pt-36 text-slate-500 mb-4"
         data-aos="fade-in"
       >
         Everyday Moments
@@ -60,10 +71,10 @@ const EverydayMoments = () => {
             <img
               src={image}
               alt={`Everyday Moment ${index}`}
-              width="500"
-              height="300"
+              width="200"
+              height="200"
               style={{ width: "100%", height: "auto", objectFit: "cover" }}
-              className="transition duration-300 ease-in-out transform hover:scale-105 rounded-xl"
+              className="transition duration-300 ease-in-out transform hover:scale-110 rounded-xl"
             />
           </div>
         ))}

@@ -1,101 +1,119 @@
 "use client";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { useState } from "react";
+import {
+  Bars3Icon,
+  CalendarIcon,
+  CameraIcon,
+  GlobeAltIcon,
+  HeartIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import {
+  Collapse,
+  IconButton,
+  Navbar,
+  Typography,
+} from "@material-tailwind/react";
+import React from "react";
 
-const navigation = [
-  { name: "Story Of Us", href: "/story" },
-  { name: "Everyday Moments", href: "/everyday" },
-  { name: "Us Around The World", href: "/world" },
-  { name: "Anniversaries", href: "/anniversaries" },
-];
-
-function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+function NavList() {
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
+    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-black">
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium hover:text-gray-500"
       >
-        <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Our Logo</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
-          </a>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+        <a
+          href="./story"
+          className="flex items-center text-xl transition-colors"
+        >
+          <HeartIcon className="h-5 w-5 mr-2" /> {/* Icon added */}
+          Our Story
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium hover:text-gray-500"
       >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Our Logo</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
+        <a
+          href="./everyday"
+          className="flex items-center text-xl transition-colors"
+        >
+          <CameraIcon className="h-5 w-5 mr-2" /> {/* Icon added */}
+          Everyday Moments
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium hover:text-gray-500"
+      >
+        <a href="#" className="flex items-center text-xl transition-colors ">
+          <GlobeAltIcon className="h-5 w-5 mr-2" /> {/* Icon added */}
+          Travel
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium hover:text-gray-500"
+      >
+        <a
+          href="./anniversaries"
+          className="flex items-center text-xl transition-colors"
+        >
+          <CalendarIcon className="h-5 w-5 mr-2" /> {/* Icon added */}
+          Anniversaries
+        </a>
+      </Typography>
+    </ul>
   );
 }
 
-export default Navbar;
+export function NavbarSimple() {
+  const [openNav, setOpenNav] = React.useState(false);
+
+  const handleWindowResize = () =>
+    window.innerWidth >= 960 && setOpenNav(false);
+
+  React.useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  return (
+    <Navbar className="mx-auto max-w-screen-2xl px-10 py-8 absolute top-0 right-0 left-0 bg-transparent z-10">
+      <div className="flex items-center justify-between text-blue-gray-900">
+        <img src="/logo.png" alt="logo" width={60} height={60} />
+        <div className="hidden lg:block text-xl">
+          {" "}
+          {/* Increase font size */}
+          <NavList />
+        </div>
+        <IconButton
+          variant="text"
+          className="ml-auto h-10 w-10 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          ripple={false}
+          onClick={() => setOpenNav(!openNav)}
+        >
+          {openNav ? (
+            <XMarkIcon className="h-10 w-10" strokeWidth={2} />
+          ) : (
+            <Bars3Icon className="h-10 w-10" strokeWidth={2} />
+          )}
+        </IconButton>
+      </div>
+      <Collapse open={openNav}>
+        <NavList />
+      </Collapse>
+    </Navbar>
+  );
+}

@@ -22,7 +22,7 @@ export default function Story() {
   };
 
   return (
-    <div className="py-8 pt-24" style={treasureMapGradient}>
+    <div className="py-8 pt-36" style={treasureMapGradient}>
       <h1
         className="text-4xl font-bold text-center mb-4"
         style={{ color: "#8b4513" }}
